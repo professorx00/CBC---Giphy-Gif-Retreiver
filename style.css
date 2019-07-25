@@ -1,0 +1,17 @@
+a.btn{
+    margin: .5rem;
+
+}
+#btnContainer{
+    height: 20vh;
+    background: rgb(52, 138, 95);
+}
+
+#gifStorage{
+    height: 100vh;
+    background: rgb(134, 191, 238);
+}
+
+#form{
+    background: rgb(153, 119, 99);
+}
