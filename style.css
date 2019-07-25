@@ -3,7 +3,7 @@ a.btn{
 
 }
 #btnContainer{
-    height: 20vh;
+    min-height: 20vh;
     background: rgb(52, 138, 95);
 }
 

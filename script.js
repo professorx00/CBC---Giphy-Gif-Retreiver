@@ -12,11 +12,13 @@ function createButtons(value){
 
 function AddToBtns(){
     btnName = docformInput.val()
-    AlreadyAdded = gifStorage.find((ele)=>{return(btnName===ele)});
-    if(!AlreadyAdded){
-        gifStorage.push(btnName);
+    console.log(btnName.toUpperCase())
+    if(gifStorage.indexOf(btnName)==-1){
         createButtons(btnName);
+        gifStorage.push(btnName);
+        docformInput.val('')
     }
+    
 }
 
 
@@ -25,6 +27,7 @@ gifStorage.forEach((ele)=>{
 })
 
 docButton.on("click",(event)=>{
+    event.preventDefault();
     AddToBtns();
 })
 
