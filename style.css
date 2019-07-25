@@ -8,7 +8,6 @@ img{
 .activeImgsContainer{
     display: flex;
     flex-direction: column;
-    padding: .5rem;
 }
 #btnContainer{
     min-height: 20vh;
