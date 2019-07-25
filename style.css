@@ -2,14 +2,26 @@ a.btn{
     margin: .5rem;
 
 }
+img{
+    width: 80%;
+}
+.activeImgsContainer{
+    display: flex;
+    flex-direction: column;
+    padding: .5rem;
+}
 #btnContainer{
     min-height: 20vh;
     background: rgb(52, 138, 95);
 }
 
 #gifStorage{
-    height: 100vh;
+    min-height: 100vh;
+    height:100%;
     background: rgb(134, 191, 238);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
 }
 
 #form{
