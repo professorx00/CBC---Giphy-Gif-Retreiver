@@ -6,6 +6,17 @@ const docformInput = $("#formInput");
 let counter = 0;
 var gifStorage = ["DUNGEONS AND DRAGONS","MARVEL"];
 
+(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+
+
+
+
 function createButtons(value){
     newBTN = $("<a>").addClass("btn waves-effect waves-light gifBtns").text(value).attr("data-search",value);
     docBtnContainer.append(newBTN);
@@ -70,8 +81,11 @@ function addImagetoGifStorage(object){
         stillUrl = ele.images.fixed_height_still.url;
         newImageContainer = $("<div>").addClass("activeImgsContainer").attr("data-rating",ele.rating)
         newImg = $("<img>").attr("src",stillUrl).attr("data-moving",ele.images.fixed_width.url).addClass("activeImgs").attr("data-active", 0)
+        newdiv = $("<div>")
         newSpan = $("<span>").text(`Rating: ${ele.rating}`);
-        newImageContainer.append(newImg,newSpan);
+        faceDiv = $("<div>").addClass("fb-share-button").attr("data-href", ele.images.fixed_height_still.url ).attr("data-layout","button_count");
+        newdiv.append(newSpan,faceDiv);
+        newImageContainer.append(newImg,newdiv);
         docGifContainer.append(newImageContainer);
     })
     console.log("end")
