@@ -4,18 +4,18 @@ const docButton = $("#btnSubmit");
 const docformInput = $("#formInput");
 
 let counter = 0;
-var gifStorage = ["DUNGEONS AND DRAGONS","MARVEL"];
+var gifStorage = ["DUNGEONS AND DRAGONS","MARVEL","OFFICE","RICK AND MORTY","INVADER ZIM","CATS","DOGS","VIDEO GAMES","ASSASSIN'S CREED","PROGRAMMING","GLITCHES","GHOSTBUSTER","ZOMBIELAND","MEL BROOKS"];
 
 
 
 function createButtons(value){
-    newBTN = $("<a>").addClass("btn waves-effect waves-light gifBtns").text(value).attr("data-search",value);
+    newBTN = $("<button>").addClass("btn waves-effect waves-light gifBtns").text(value).attr("data-search",value);
     docBtnContainer.append(newBTN);
 }
 
-function AddToBtns(){
-    btnName = docformInput.val().toUpperCase();
+function AddToBtns(target){
 
+    let btnName = target || docformInput.val().toUpperCase();
     if(gifStorage.indexOf(btnName)==-1){
         createButtons(btnName);
         gifStorage.push(btnName);
@@ -49,7 +49,6 @@ function ImgClick() {
 }
 
 function GifButtonClick() {
-    $(".gifBtns").on("click", (event) => {
         docGifContainer.empty();
         clickValue = $(event.target).attr("data-search");
         queryURL = `HTTPS://api.giphy.com/v1/gifs/search?q=${clickValue}&limit=10&apikey=4DW3rR9uRFn9H7EgmXRQik7An9jg3I2c`;
@@ -59,7 +58,6 @@ function GifButtonClick() {
         }).then(function (response) {
             console.log(response)
             addImagetoGifStorage(response.data);
-        });
     });
 }
 
@@ -87,13 +85,23 @@ gifStorage.forEach((ele)=>{
     createButtons(ele);
 })
 // ON click Event lister to add to the div
-docButton.on("click",(event)=>{
-    event.preventDefault();
-    AddToBtns();
-    GifButtonClick();
+docformInput.on("keyup",(event)=>{ 
+    
+    if(event.keyCode === 13){
+        AddToBtns(event.currentTarget.value)
+        console.log(event);
+    }
 })
 
-GifButtonClick();
+docButton.on("click",(event)=>{
+    event.preventDefault();
+    AddToBtns(event.currentTarget.value);
+})
+$("#form").submit(()=> false);
+
+$(document).on("click", "button.gifBtns", GifButtonClick);
+
+console.log(docformInput)
 
 // ImgClick();
 
