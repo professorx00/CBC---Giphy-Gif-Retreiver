@@ -22,6 +22,7 @@ img{
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
 }
 
-#form{
-    
+#instruction{
+    text-shadow: 4px 1px 5px rgba(30,13,8,0.31);
+    color:teal;
 }
