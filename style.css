@@ -26,3 +26,31 @@ img{
     text-shadow: 4px 1px 5px rgba(30,13,8,0.31);
     color:teal;
 }
+
+@media (max-width: 640px){
+    #gifStorage{
+        min-height: 100vh;
+        height:100%;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: Auto;
+    }
+    #gifandformContainer{
+        display:flex;
+        flex-direction: column-reverse;
+    }
+     
+    }
+     
+    @media (max-width: 768px){
+     
+        #gifStorage{
+            min-height: 100vh;
+            height:100%;
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: Auto;
+        }
+        
+     
+    }

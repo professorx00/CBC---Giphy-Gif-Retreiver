@@ -50,8 +50,9 @@ function ImgClick() {
 
 function GifButtonClick() {
         docGifContainer.empty();
+        let randomOffset = Math.floor(Math.random()*200)+25
         clickValue = $(event.target).attr("data-search");
-        queryURL = `HTTPS://api.giphy.com/v1/gifs/search?q=${clickValue}&limit=10&apikey=4DW3rR9uRFn9H7EgmXRQik7An9jg3I2c`;
+        queryURL = `HTTPS://api.giphy.com/v1/gifs/search?q=${clickValue}&limit=10&offset=${randomOffset}&apikey=4DW3rR9uRFn9H7EgmXRQik7An9jg3I2c`;
         $.ajax({
             url: queryURL,
             method: "GET"
