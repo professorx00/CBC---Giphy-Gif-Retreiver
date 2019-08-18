@@ -1,6 +1,14 @@
+@import url('https://fonts.googleapis.com/css?family=Luckiest+Guy|Righteous|Spicy+Rice&display=swap');
+*{
+    font-family: 'Spicy Rice', cursive;
+}
 a.btn{
     margin: .5rem;
 
+}
+button.gifBtns{
+    margin: .25rem;
+    font-family: 'Righteous', cursive;
 }
 img{
     width: 80%;
@@ -8,23 +16,46 @@ img{
 .activeImgsContainer{
     display: flex;
     flex-direction: column;
+    text-align: center;
+    margin: .25rem;
+
+}
+.activeImgs{
+    margin-left:auto;
+    margin-right:auto;
+    max-height:20vh;
+}
+.gifInfo{
+    background-color: white;
+    display:flex;
+    flex-direction: column;
+    border: black 1px inset;
+    width:80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.gifTitle{
+    font-weight: bolder;
 }
 #btnContainer{
     min-height: 20vh;
-    
 }
-
 #gifStorage{
+    padding: 1rem;
     min-height: 100vh;
     height:100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
 }
-
 #instruction{
     text-shadow: 4px 1px 5px rgba(30,13,8,0.31);
     color:teal;
+}
+#title{
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 3.5rem;
+
 }
 
 @media (max-width: 640px){
@@ -38,6 +69,11 @@ img{
     #gifandformContainer{
         display:flex;
         flex-direction: column-reverse;
+    }
+    #title{
+        font-family: 'Luckiest Guy', cursive;
+        font-size: 2rem;
+    
     }
      
     }

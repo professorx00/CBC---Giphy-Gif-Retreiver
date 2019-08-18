@@ -70,9 +70,12 @@ function addImagetoGifStorage(object){
         console.log(counter)
         stillUrl = ele.images.fixed_height_still.url;
         newImageContainer = $("<div>").addClass("activeImgsContainer").attr("data-rating",ele.rating)
-        newImg = $("<img>").attr("src",stillUrl).attr("data-moving",ele.images.fixed_width.url).addClass("activeImgs").attr("data-active", 0)
+        newImg = $("<img>").attr("src",stillUrl).attr("data-moving",ele.images.fixed_width.url).addClass("activeImgs center-align").attr("data-active", 0)
+        newinfo = $("<div>").addClass("gifInfo")
         newSpan = $("<span>").text(`Rating: ${ele.rating}`);
-        newImageContainer.append(newImg,newSpan);
+        newtitle = $("<span>").text(ele.title).addClass("gifTitle");
+        newinfo.append(newtitle,newSpan)
+        newImageContainer.append(newImg,newinfo);
         docGifContainer.append(newImageContainer);
     })
     console.log("end")
